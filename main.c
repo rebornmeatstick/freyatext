@@ -72,21 +72,29 @@ void handleInput(char** txtBuffer, size_t* cap, size_t* len){
 void cleanup(char** txtBuffer, size_t* len){
     char save;
     char filename[255];
+    int pass = 0;
     (*txtBuffer)[*len] = '\0'; // null terminate
 
     printf("\ndo you wanna save the modified buffer? [y/n] : ");
     scanf("%s", &save);
 
-    if(save == 'y'){
-        printf("\nsave under what filename? : ");
-        scanf("%255s", &filename);
-        printf("%s", &filename);
-        saveToFile(filename, *txtBuffer, *len);
-    }else if(save == 'n') {
-        printf("\n--- your unsaved buffer ---\n%s\n", *txtBuffer);
-    }else{
-        printf("that's not a vaild argument! type in [y/n], please!");
-        cleanup(&(*txtBuffer), &(*len));
+
+    while (pass != 1) {
+        if(save == 'y'){
+            pass = 1;
+            printf("\nsave under what filename? : ");
+            scanf("%255s", &filename);
+            printf("%s", &filename);
+            saveToFile(filename, *txtBuffer, *len);
+            break;
+        }else if(save == 'n') {
+            pass = 1;
+            printf("\n--- your unsaved buffer ---\n%s\n", *txtBuffer);
+            exit(0);
+        }else{
+            printf("that's not a vaild argument! type in [y/n], please! : ");
+            scanf("%s", &save);
+        }
     }
 
     free(*txtBuffer);
