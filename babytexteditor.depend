@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1744396875 source:c:\users\caste\desktop\freya's corner\babytexteditor\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
+1744338067 source:c:\users\caste\desktop\freya's corner\babytexteditor\main_stable.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
+1744398384 source:c:\users\caste\desktop\freya's corner\freyatext\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
